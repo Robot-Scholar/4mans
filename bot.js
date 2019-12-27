@@ -11,16 +11,20 @@ logger.add(new logger.transports.Console, {
 });
 logger.level = 'debug';
 
+var Queues = {};
+
 // Initialize Discord Bot
 var bot = new Discord.Client({
    token: process.env.BOT_TOKEN,
    autorun: true
 });
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
@@ -28,6 +32,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
        
+        logger.info(userID);
+
         args = args.splice(1);
         switch(cmd) {
             // !ping
@@ -37,7 +43,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
-            // Just add any case commands if you want to..
+
+            case 'createqueue':
+
+
+            break;
+
+            case 'q':
+                
+            break;
+            
          }
      }
 });
