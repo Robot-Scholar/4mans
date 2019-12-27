@@ -33,6 +33,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd = args[0];
        
         logger.info('user sending message: ' + userID + ', channel: ' + channelID);
+        logger.info(user);
 
         args = args.splice(1);
         switch(cmd) {
