@@ -1,8 +1,21 @@
 {
-    "name": "4mans",
-    "version": "1.0.0",
-    "description": "4mans Rocket League match bot.",
-    "main": "bot.js",
-    "author": "Eric Harrison",
-    "dependencies": {},
+  "name": "4mans",
+  "version": "1.0.0",
+  "description": "Rocket League 4mans Discord Bot",
+  "main": "bot.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robot-Scholar/4mans.git"
+  },
+  "author": "Eric Harrison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robot-Scholar/4mans/issues"
+  },
+  "homepage": "https://github.com/Robot-Scholar/4mans#readme"
 }
