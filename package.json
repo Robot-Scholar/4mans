@@ -1,0 +1,8 @@
+{
+    "name": "4mans",
+    "version": "1.0.0",
+    "description": "4mans Rocket League match bot.",
+    "main": "bot.js",
+    "author": "Eric Harrison",
+    "dependencies": {},
+}
