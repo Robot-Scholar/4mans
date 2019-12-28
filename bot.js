@@ -74,15 +74,29 @@ client.on('message', message => {
         case 'createqueue':
             if ( args.length ) {
                 let guild = message.guild;
+                if ( ! args[0] in Queues ) {
+                    Queues[ args[0] ] = {};
+                }
                 guild.createChannel(args[0], {type: 'text'})
                     .then(logger.info)
+                    .then(function(something) {
+                        logger.info('Storing the queue?');
+                        logger.info('Args:');
+                        logger.info(arguments);
+                        
+                    })
                     .catch(logger.error);
             }
             
         break;
 
         case 'q':
-            
+            if ( message.channel.name in Queues ) {
+                Queues[ message.channel.name ][ message.author.id ] = message.author;
+            }
+
+            message.channel.send(`Users in #${message.channel.name} queue: ${Queues[ message.channel.name ].keys()}\n`);
+            message.channel.send(`<@${Queues.keys()}`);
         break;
         
         }
