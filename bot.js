@@ -20,7 +20,7 @@ client.login(process.env.BOT_TOKEN);
 
 const prefix = process.env.PREFIX;
 
-var Queues = {};
+let Queues = {};
 
 client.on('message', message => {
 
