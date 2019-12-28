@@ -74,7 +74,9 @@ client.on('message', message => {
         case 'createqueue':
             if ( args.length ) {
                 let guild = message.guild;
-                if ( ! args[0] in Queues ) {
+                if ( args[0] in Queues ) {
+                    message.reply(' ${args[0]} already exists.');
+                } else {
                     Queues[ args[0] ] = {};
                 }
                 guild.createChannel(args[0], {type: 'text'})
