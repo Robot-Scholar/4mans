@@ -60,7 +60,7 @@ client.on('message', message => {
         break;
 
         case 'user-info':
-            message.reply(` Your username: @${message.author.username}\nYour ID: ${message.author.id}`);
+            message.reply(` Your username: <@${message.author.username}>\nYour ID: ${message.author.id}`);
         break;
 
         case 'test':
