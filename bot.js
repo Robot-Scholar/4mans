@@ -1,6 +1,27 @@
 
 require('dotenv').config();
 
+const Discord = require('discord');
+const logger  = require('winston');
+
+const client = new Discord.Client();
+
+logger.remove(logger.transports.Console);
+logger.add( new logger.transports.Console, {
+    colorize: true
+});
+logger.level = 'debug';
+
+client.once('ready', () => {
+    logger.info('Ready');
+});
+
+client.login(process.env.BOT_TOKEN);
+
+var Queues = {};
+
+/*
+
 var Discord = require('discord.io');
 var logger  = require('winston');
 
