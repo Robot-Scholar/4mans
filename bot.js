@@ -97,8 +97,11 @@ client.on('message', message => {
                 Queues[ message.channel.name ][ message.author.id ] = message.author;
             }
 
-            logger.info(Queues);
-            //message.channel.send(`Users in #${message.channel.name} queue: ${Queues[ message.channel.name ].keys()}\n`);
+            //logger.info(Queues);
+            let q_users = Queues[ message.channel.name ];
+            let counts  = q_users.keys();
+        
+            message.channel.send(`Users in #${message.channel.name} queue: ${counts}\n`);
             //message.channel.send(`<@${Queues.keys()}`);
         break;
         
