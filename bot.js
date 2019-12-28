@@ -23,7 +23,6 @@ const prefix = process.env.PREFIX;
 var Queues = {};
 
 client.on('message', message => {
-    logger.info(message);
 
     if (message.content.substring(0, 1) == `${prefix}`) {
         var args = message.content.substring(1).split(' ');
