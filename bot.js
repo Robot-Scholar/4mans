@@ -49,6 +49,15 @@ client.on('message', message => {
             message.channel.send(`Command name: ${cmd}\nArguments: ${args}`);
         break;
 
+        case 'avatar':
+            if ( ! message.mentions.users.size ) {
+                return message.reply(` your avatar is <${message.author.displayAvatarURL}>`);
+            }
+
+            const avatars = message.mentions.users.map(user => {
+                return `${user.username}'s avatar: <${user.displayAvatarURL}>`;
+            });
+        break;
 
         case 'user-info':
             message.reply(` Your username: @${message.author.username}\nYour ID: ${message.author.id}`);
@@ -56,6 +65,10 @@ client.on('message', message => {
 
         case 'test':
             message.channel.send(message);
+        break;
+
+        case 'activity':
+            client.user.setActivity(args.join(' '));
         break;
 
         case 'createqueue':
