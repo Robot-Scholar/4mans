@@ -36,6 +36,14 @@ client.on('message', message => {
                 message.channel.send('pong...');
             break;
 
+            case 'debug':
+                message.channel.send(`Server name: ${message.guild.name}\nMembers: ${message.guild.memberCount}`);
+            break;
+
+            case 'user-info':
+                message.channel.send(`Your username: @${message.author.username}\nYour ID: ${message.author.id}`);
+            break;
+
             case 'test':
                 message.channel.send(message);
             break;
