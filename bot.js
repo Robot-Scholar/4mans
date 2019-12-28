@@ -24,40 +24,51 @@ var Queues = {};
 
 client.on('message', message => {
 
-    if (message.content.substring(0, 1) == `${prefix}`) {
-        var args = message.content.substring(1).split(' ');
-        var cmd = args[0];
-       
-        args = args.splice(1);
-        switch(cmd) {
-            // !ping
-            case 'ping':
-                message.channel.send('pong...');
-            break;
+    if ( ! message.content.startsWith(prefix) || message.author.bot ) {
+        return;
+    }
 
-            case 'debug':
-                message.channel.send(`Server name: ${message.guild.name}\nMembers: ${message.guild.memberCount}`);
-            break;
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const cmd  = args.shift().toLowerCase();
 
-            case 'user-info':
-                message.channel.send(`Your username: @${message.author.username}\nYour ID: ${message.author.id}`);
-            break;
+    switch(cmd) {
+        // !ping
+        case 'ping':
+            message.channel.send('pong...');
+        break;
 
-            case 'test':
-                message.channel.send(message);
-            break;
+        case 'debug':
+            message.channel.send(`Server name: ${message.guild.name}\nMembers: ${message.guild.memberCount}`);
+        break;
 
-            case 'createqueue':
+        case 'args-info':
+            if ( ! args.length ) {
+                return message.reply(` you didn't provide any arguments.`);
+            }
+
+            message.channel.send(`Command name: ${cmd}\nArguments: ${args}`);
+        break;
 
 
-            break;
+        case 'user-info':
+            message.reply(` Your username: @${message.author.username}\nYour ID: ${message.author.id}`);
+        break;
 
-            case 'q':
-                
-            break;
+        case 'test':
+            message.channel.send(message);
+        break;
+
+        case 'createqueue':
+
+
+        break;
+
+        case 'q':
             
-         }
-     }
+        break;
+        
+        }
+    
 
 });
 
