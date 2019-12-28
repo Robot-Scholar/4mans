@@ -20,6 +20,38 @@ client.login(process.env.BOT_TOKEN);
 
 var Queues = {};
 
+client.on('message', message => {
+    logger.info(message);
+
+    if (message.content.substring(0, 1) == '!') {
+        var args = message.substring(1).split(' ');
+        var cmd = args[0];
+       
+        args = args.splice(1);
+        switch(cmd) {
+            // !ping
+            case 'ping':
+                message.channel.send('pong...');
+            break;
+
+            case 'test':
+                message.channel.send(message);
+            break;
+
+            case 'createqueue':
+
+
+            break;
+
+            case 'q':
+                
+            break;
+            
+         }
+     }
+
+});
+
 /*
 
 var Discord = require('discord.io');
