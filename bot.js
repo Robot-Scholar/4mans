@@ -24,7 +24,7 @@ client.on('message', message => {
     logger.info(message);
 
     if (message.content.substring(0, 1) == '!') {
-        var args = message.substring(1).split(' ');
+        var args = message.content.substring(1).split(' ');
         var cmd = args[0];
        
         args = args.splice(1);
