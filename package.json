@@ -4,7 +4,6 @@
   "description": "Rocket League 4mans Discord Bot",
   "main": "bot.js",
   "dependencies": {
-    "discord.io": "^2.5.3",
     "dotenv": "^8.2.0",
     "winston": "^3.2.1"
   },
