@@ -1,7 +1,7 @@
 
 require('dotenv').config();
 
-const Discord = require('discord');
+const Discord = require('discord.js');
 const logger  = require('winston');
 
 const client = new Discord.Client();
