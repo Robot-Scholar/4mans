@@ -72,8 +72,13 @@ client.on('message', message => {
         break;
 
         case 'createqueue':
-
-
+            if ( args.length ) {
+                let guild = message.guild;
+                guild.createChannel(args[0], {type: 'text'})
+                    .then(logger.info)
+                    .catch(logger.error);
+            }
+            
         break;
 
         case 'q':
